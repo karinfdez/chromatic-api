@@ -17,12 +17,23 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "chromatic": "chromatic",
-        "build-storybook": "build-storybook -s public"
+        "storybook": "start-storybook",
+        "build-storybook": "build-storybook -c .storybook -o public"
     },
     "eslintConfig": {
         "extends": [
             "react-app",
             "react-app/jest"
+        ],
+        "overrides": [
+            {
+                "files": [
+                    "**/*.stories.*"
+                ],
+                "rules": {
+                    "import/no-anonymous-default-export": "off"
+                }
+            }
         ]
     },
     "browserslist": {
@@ -38,6 +49,15 @@
         ]
     },
     "devDependencies": {
-        "chromatic": "^6.4.1"
+        "@storybook/addon-actions": "^6.4.14",
+        "@storybook/addon-essentials": "^6.4.14",
+        "@storybook/addon-links": "^6.4.14",
+        "@storybook/builder-webpack5": "^6.4.14",
+        "@storybook/manager-webpack5": "^6.4.14",
+        "@storybook/node-logger": "^6.4.14",
+        "@storybook/preset-create-react-app": "^4.0.0",
+        "@storybook/react": "^6.4.14",
+        "chromatic": "^6.4.1",
+        "webpack": "^5.67.0"
     }
 }
